@@ -1,0 +1,729 @@
+here<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediCare Connect - World Class Health Platform</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    *{
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body{
+      background: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    .glass{
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    .hero-bg{
+      background:
+      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
+      url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .doctor-card:hover{
+      transform: translateY(-10px);
+    }
+
+    .animate-float{
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform: translateY(0px);
+      }
+      50%{
+        transform: translateY(-10px);
+      }
+    }
+
+    .gradient-text{
+      background: linear-gradient(to right, #06b6d4, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .chat-box{
+      height: 300px;
+      overflow-y: auto;
+    }
+
+    .custom-shadow{
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-lg shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-white text-xl font-bold">
+          M
+        </div>
+
+        <div>
+          <h1 class="font-bold text-2xl text-slate-800">
+            MediCare Connect
+          </h1>
+          <p class="text-xs text-slate-500">
+            Smart Healthcare Platform
+          </p>
+        </div>
+      </div>
+
+      <div class="hidden md:flex gap-8 font-medium text-slate-700">
+        <a href="#home" class="hover:text-cyan-500 transition">Home</a>
+        <a href="#doctors" class="hover:text-cyan-500 transition">Doctors</a>
+        <a href="#services" class="hover:text-cyan-500 transition">Services</a>
+        <a href="#contact" class="hover:text-cyan-500 transition">Contact</a>
+      </div>
+
+      <button
+        class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold transition">
+        Book Appointment
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home"
+    class="hero-bg min-h-screen flex items-center justify-center text-white px-6">
+
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+
+      <div>
+        <span
+          class="bg-white/20 px-5 py-2 rounded-full text-sm inline-block mb-6">
+          Trusted by Thousands of Patients
+        </span>
+
+        <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight">
+          Connect With
+          <span class="text-cyan-300">
+            Professional Doctors
+          </span>
+          Anytime
+        </h1>
+
+        <p class="mt-8 text-lg text-slate-200 leading-relaxed">
+          A world-class healthcare platform where patients can easily
+          communicate with certified doctors, book appointments,
+          receive medical advice, and access quality healthcare online.
+        </p>
+
+        <div class="flex flex-wrap gap-5 mt-10">
+          <button
+            class="bg-cyan-500 hover:bg-cyan-600 px-8 py-4 rounded-full font-semibold text-lg transition">
+            Find a Doctor
+          </button>
+
+          <button
+            class="bg-white/10 border border-white/20 hover:bg-white/20 px-8 py-4 rounded-full font-semibold text-lg transition">
+            Learn More
+          </button>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6 mt-14">
+          <div>
+            <h2 class="text-4xl font-bold">500+</h2>
+            <p class="text-slate-300">Doctors</p>
+          </div>
+
+          <div>
+            <h2 class="text-4xl font-bold">20k+</h2>
+            <p class="text-slate-300">Patients</p>
+          </div>
+
+          <div>
+            <h2 class="text-4xl font-bold">24/7</h2>
+            <p class="text-slate-300">Support</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOATING CARD -->
+      <div class="animate-float">
+        <div class="glass rounded-[35px] p-8 custom-shadow">
+
+          <div class="flex items-center gap-4">
+            <img
+              src="https://randomuser.me/api/portraits/women/44.jpg"
+              class="w-20 h-20 rounded-full object-cover border-4 border-cyan-400"
+            />
+
+            <div>
+              <h2 class="text-2xl font-bold text-slate-800">
+                Dr. Sarah Wilson
+              </h2>
+
+              <p class="text-cyan-600 font-semibold">
+                Cardiologist
+              </p>
+
+              <div class="flex text-yellow-400 mt-2">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 grid grid-cols-2 gap-4">
+
+            <div class="bg-cyan-50 p-5 rounded-2xl">
+              <i class="fa-solid fa-user-doctor text-cyan-500 text-3xl"></i>
+
+              <h3 class="mt-3 text-xl font-bold text-slate-800">
+                15+
+              </h3>
+
+              <p class="text-slate-500">
+                Years Experience
+              </p>
+            </div>
+
+            <div class="bg-blue-50 p-5 rounded-2xl">
+              <i class="fa-solid fa-heart-pulse text-blue-500 text-3xl"></i>
+
+              <h3 class="mt-3 text-xl font-bold text-slate-800">
+                4.9
+              </h3>
+
+              <p class="text-slate-500">
+                Patient Rating
+              </p>
+            </div>
+
+          </div>
+
+          <button
+            class="mt-8 w-full bg-cyan-500 hover:bg-cyan-600 text-white py-4 rounded-2xl text-lg font-semibold transition">
+            Start Consultation
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-28 px-6">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-20">
+        <h2 class="text-5xl font-extrabold text-slate-800">
+          Our
+          <span class="gradient-text">
+            Healthcare Services
+          </span>
+        </h2>
+
+        <p class="mt-5 text-slate-500 text-lg max-w-3xl mx-auto">
+          We provide premium digital healthcare solutions
+          for patients globally.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- CARD -->
+        <div
+          class="bg-white rounded-[30px] p-8 custom-shadow hover:scale-105 transition">
+
+          <div
+            class="w-20 h-20 bg-cyan-100 rounded-3xl flex items-center justify-center">
+            <i class="fa-solid fa-video text-cyan-500 text-3xl"></i>
+          </div>
+
+          <h3 class="mt-6 text-2xl font-bold text-slate-800">
+            Video Consultation
+          </h3>
+
+          <p class="mt-4 text-slate-500 leading-relaxed">
+            Meet professional doctors online through secure video calls.
+          </p>
+
+        </div>
+
+        <div
+          class="bg-white rounded-[30px] p-8 custom-shadow hover:scale-105 transition">
+
+          <div
+            class="w-20 h-20 bg-blue-100 rounded-3xl flex items-center justify-center">
+            <i class="fa-solid fa-calendar-check text-blue-500 text-3xl"></i>
+          </div>
+
+          <h3 class="mt-6 text-2xl font-bold text-slate-800">
+            Appointment Booking
+          </h3>
+
+          <p class="mt-4 text-slate-500 leading-relaxed">
+            Book appointments with top specialists seamlessly.
+          </p>
+
+        </div>
+
+        <div
+          class="bg-white rounded-[30px] p-8 custom-shadow hover:scale-105 transition">
+
+          <div
+            class="w-20 h-20 bg-green-100 rounded-3xl flex items-center justify-center">
+            <i class="fa-solid fa-notes-medical text-green-500 text-3xl"></i>
+          </div>
+
+          <h3 class="mt-6 text-2xl font-bold text-slate-800">
+            Medical Records
+          </h3>
+
+          <p class="mt-4 text-slate-500 leading-relaxed">
+            Keep patient records and prescriptions digitally secured.
+          </p>
+
+        </div>
+
+        <div
+          class="bg-white rounded-[30px] p-8 custom-shadow hover:scale-105 transition">
+
+          <div
+            class="w-20 h-20 bg-red-100 rounded-3xl flex items-center justify-center">
+            <i class="fa-solid fa-truck-medical text-red-500 text-3xl"></i>
+          </div>
+
+          <h3 class="mt-6 text-2xl font-bold text-slate-800">
+            Emergency Support
+          </h3>
+
+          <p class="mt-4 text-slate-500 leading-relaxed">
+            Fast response healthcare support available 24/7.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- DOCTORS -->
+  <section id="doctors" class="py-28 bg-slate-100 px-6">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="flex flex-col lg:flex-row justify-between items-center mb-16">
+
+        <div>
+          <h2 class="text-5xl font-extrabold text-slate-800">
+            Meet Our
+            <span class="gradient-text">
+              Expert Doctors
+            </span>
+          </h2>
+
+          <p class="mt-4 text-slate-500 text-lg">
+            Certified healthcare professionals available online.
+          </p>
+        </div>
+
+        <input
+          type="text"
+          id="searchDoctor"
+          placeholder="Search doctor..."
+          class="mt-8 lg:mt-0 px-6 py-4 rounded-2xl border-none outline-none w-full lg:w-96 custom-shadow"
+        />
+
+      </div>
+
+      <!-- DOCTORS GRID -->
+      <div id="doctorContainer"
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-28 px-6">
+
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+
+      <!-- FORM -->
+      <div class="bg-white rounded-[35px] p-10 custom-shadow">
+
+        <h2 class="text-4xl font-extrabold text-slate-800">
+          Contact A Doctor
+        </h2>
+
+        <p class="mt-4 text-slate-500">
+          Fill in your health details and a doctor will respond shortly.
+        </p>
+
+        <form class="mt-10 space-y-6">
+
+          <input
+            type="text"
+            placeholder="Full Name"
+            class="w-full px-6 py-4 rounded-2xl bg-slate-100 outline-none"
+          />
+
+          <input
+            type="email"
+            placeholder="Email Address"
+            class="w-full px-6 py-4 rounded-2xl bg-slate-100 outline-none"
+          />
+
+          <textarea
+            rows="6"
+            placeholder="Describe your health issue..."
+            class="w-full px-6 py-4 rounded-2xl bg-slate-100 outline-none resize-none"></textarea>
+
+          <button
+            class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-4 rounded-2xl text-lg font-semibold transition">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+      <!-- CHAT -->
+      <div class="bg-slate-900 rounded-[35px] p-10 text-white">
+
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-3xl font-bold">
+              Live Doctor Chat
+            </h2>
+
+            <p class="text-slate-400 mt-2">
+              Real-time patient communication
+            </p>
+          </div>
+
+          <div class="w-4 h-4 rounded-full bg-green-400 animate-pulse"></div>
+        </div>
+
+        <div id="chatBox"
+          class="chat-box mt-10 bg-slate-800 rounded-3xl p-6 space-y-5">
+
+        </div>
+
+        <div class="flex gap-4 mt-6">
+
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Type your message..."
+            class="flex-1 px-6 py-4 rounded-2xl bg-slate-700 outline-none"
+          />
+
+          <button
+            id="sendBtn"
+            class="bg-cyan-500 hover:bg-cyan-600 px-8 rounded-2xl transition">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-white py-16 px-6">
+
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
+
+      <div>
+        <h2 class="text-3xl font-bold">
+          MediCare Connect
+        </h2>
+
+        <p class="mt-5 text-slate-400 leading-relaxed">
+          World-class healthcare communication platform
+          connecting patients with professionals globally.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-5">
+          Services
+        </h3>
+
+        <ul class="space-y-3 text-slate-400">
+          <li>Consultation</li>
+          <li>Medical Records</li>
+          <li>Emergency Support</li>
+          <li>Appointments</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-5">
+          Company
+        </h3>
+
+        <ul class="space-y-3 text-slate-400">
+          <li>About</li>
+          <li>Doctors</li>
+          <li>Contact</li>
+          <li>Privacy Policy</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-5">
+          Follow Us
+        </h3>
+
+        <div class="flex gap-5 text-2xl">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div
+      class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500">
+      © 2026 MediCare Connect. All Rights Reserved.
+    </div>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    // DOCTORS DATA
+    const doctors = [
+      {
+        name: "Dr. Sarah Wilson",
+        specialty: "Cardiologist",
+        image: "https://randomuser.me/api/portraits/women/44.jpg",
+        experience: "15 Years"
+      },
+
+      {
+        name: "Dr. Michael Brown",
+        specialty: "Neurologist",
+        image: "https://randomuser.me/api/portraits/men/32.jpg",
+        experience: "10 Years"
+      },
+
+      {
+        name: "Dr. Emma Johnson",
+        specialty: "Dermatologist",
+        image: "https://randomuser.me/api/portraits/women/65.jpg",
+        experience: "8 Years"
+      },
+
+      {
+        name: "Dr. Daniel Smith",
+        specialty: "Pediatrician",
+        image: "https://randomuser.me/api/portraits/men/45.jpg",
+        experience: "12 Years"
+      },
+
+      {
+        name: "Dr. Olivia White",
+        specialty: "Gynecologist",
+        image: "https://randomuser.me/api/portraits/women/68.jpg",
+        experience: "9 Years"
+      },
+
+      {
+        name: "Dr. James Lee",
+        specialty: "Orthopedic Surgeon",
+        image: "https://randomuser.me/api/portraits/men/51.jpg",
+        experience: "14 Years"
+      }
+    ];
+
+    const doctorContainer = document.getElementById("doctorContainer");
+    const searchDoctor = document.getElementById("searchDoctor");
+
+    // RENDER DOCTORS
+    function renderDoctors(list) {
+
+      doctorContainer.innerHTML = "";
+
+      list.forEach((doctor) => {
+
+        doctorContainer.innerHTML += `
+          <div
+            class="doctor-card bg-white rounded-[35px] p-8 custom-shadow transition duration-500">
+
+            <img
+              src="${doctor.image}"
+              class="w-32 h-32 rounded-full object-cover mx-auto border-4 border-cyan-500"
+            />
+
+            <div class="text-center mt-6">
+
+              <h3 class="text-2xl font-bold text-slate-800">
+                ${doctor.name}
+              </h3>
+
+              <p class="text-cyan-500 font-semibold mt-2">
+                ${doctor.specialty}
+              </p>
+
+              <div class="mt-5 flex justify-center gap-1 text-yellow-400">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <p class="mt-4 text-slate-500">
+                Experience: ${doctor.experience}
+              </p>
+
+              <button
+                class="mt-6 bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full transition">
+                Contact Doctor
+              </button>
+
+            </div>
+
+          </div>
+        `;
+      });
+    }
+
+    renderDoctors(doctors);
+
+    // SEARCH FUNCTION
+    searchDoctor.addEventListener("keyup", () => {
+
+      const value = searchDoctor.value.toLowerCase();
+
+      const filtered = doctors.filter((doctor) => {
+        return (
+          doctor.name.toLowerCase().includes(value) ||
+          doctor.specialty.toLowerCase().includes(value)
+        );
+      });
+
+      renderDoctors(filtered);
+    });
+
+    // CHAT FUNCTIONALITY
+    const sendBtn = document.getElementById("sendBtn");
+    const chatInput = document.getElementById("chatInput");
+    const chatBox = document.getElementById("chatBox");
+
+    function addMessage(message, sender) {
+
+      const messageDiv = document.createElement("div");
+
+      if(sender === "user"){
+        messageDiv.innerHTML = `
+          <div class="flex justify-end">
+            <div
+              class="bg-cyan-500 px-5 py-3 rounded-2xl max-w-xs">
+              ${message}
+            </div>
+          </div>
+        `;
+      }
+
+      else{
+        messageDiv.innerHTML = `
+          <div class="flex justify-start">
+            <div
+              class="bg-slate-700 px-5 py-3 rounded-2xl max-w-xs">
+              ${message}
+            </div>
+          </div>
+        `;
+      }
+
+      chatBox.appendChild(messageDiv);
+
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    sendBtn.addEventListener("click", () => {
+
+      const message = chatInput.value.trim();
+
+      if(message === "") return;
+
+      addMessage(message, "user");
+
+      chatInput.value = "";
+
+      setTimeout(() => {
+
+        addMessage(
+          "Hello, thank you for contacting our healthcare platform. A doctor will respond shortly.",
+          "doctor"
+        );
+
+      }, 1000);
+
+    });
+
+  </script>
+
+  <!-- TYPESCRIPT EXAMPLE -->
+  <script type="module">
+
+    interface Patient {
+      name: string;
+      email: string;
+      issue: string;
+    }
+
+    const patientData: Patient = {
+      name: "John Doe",
+      email: "john@example.com",
+      issue: "Fever and headache"
+    };
+
+    console.log(patientData);
+
+  </script>
+
+</body>
+</html>
