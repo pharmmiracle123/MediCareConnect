@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>MediCare Connect - Smart Healthcare Platform</title>
+  <title>SupremeCare Connect - Smart Healthcare Platform</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,7 +34,7 @@
     .hero-bg{
       background:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-      url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2070&auto=format&fit=crop');
+      url('file_000000000c887243bcfdde77bcdea094.png');
 
       background-size: cover;
       background-position: center;
@@ -101,7 +101,7 @@
 
       <div>
         <h1 class="font-bold text-xl sm:text-2xl text-slate-800">
-          MediCare Connect
+          SupremeCare Connect
         </h1>
 
         <p class="text-xs text-slate-500">
@@ -177,7 +177,7 @@
 
       <p class="mt-8 text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
 
-        MediCare Connect helps patients communicate directly with certified healthcare professionals,
+        SupremeCare Connect helps patients communicate directly with certified healthcare professionals,
         get medical advice, book consultations and receive healthcare support online 24/7.
 
       </p>
@@ -245,18 +245,18 @@
         <div class="flex items-center gap-4 flex-wrap">
 
           <img
-            src="https://randomuser.me/api/portraits/women/44.jpg"
+            src="IMG-20260622-WA0019.jpg"
             class="w-20 h-20 rounded-full object-cover border-4 border-cyan-400"
           />
 
           <div>
 
             <h2 class="text-2xl font-bold">
-              Dr. Sarah Wilson
+              Dr. Ese Fredrick Arigbe
             </h2>
 
             <p class="text-cyan-300 font-semibold">
-              Cardiologist
+              General Doctor
             </p>
 
             <div class="flex text-yellow-400 mt-2 gap-1">
@@ -317,6 +317,51 @@
 
   </div>
 
+</section>
+
+<!-- EMERGENCY DISPATCH SYSTEM -->
+<section class="py-20 px-6 bg-red-50" id="emergency">
+  
+  <div class="max-w-7xl mx-auto">
+    
+    <h2 class="text-4xl font-extrabold text-red-600">
+      Emergency Dispatch System
+    </h2>
+    
+    <p class="mt-4 text-slate-600">
+      Automatically connects you to the nearest hospital + frontline doctor.
+    </p>
+    
+    <div class="grid md:grid-cols-3 gap-6 mt-10">
+      
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="font-bold">Severity Level</h3>
+        <select class="w-full mt-3 p-3 border rounded">
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+          <option>Critical</option>
+        </select>
+      </div>
+      
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="font-bold">Auto Location Detection</h3>
+        <button onclick="getLocation()" class="bg-cyan-500 text-white px-4 py-2 mt-3 rounded">
+          Detect My Location
+        </button>
+      </div>
+      
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="font-bold">Dispatch Action</h3>
+        <button onclick="dispatchEmergency()" class="bg-red-500 text-white px-4 py-2 mt-3 rounded">
+          Send Emergency
+        </button>
+      </div>
+      
+    </div>
+    
+  </div>
+  
 </section>
 
 <!-- SERVICES -->
@@ -824,6 +869,87 @@
 
 </section>
 
+<section class="py-20 px-6 bg-slate-100">
+  
+  <div class="max-w-7xl mx-auto">
+    
+    <h2 class="text-4xl font-bold">Global Hospital Network</h2>
+    
+    <p class="text-slate-500 mt-2">
+      Live hospital connectivity across countries
+    </p>
+    
+    <div class="grid md:grid-cols-4 gap-4 mt-10">
+      
+      <div class="bg-green-100 p-4 rounded-xl">
+        🇳🇬 Nigeria <br><b>Active</b>
+      </div>
+      
+      <div class="bg-blue-100 p-4 rounded-xl">
+        🇺🇸 USA <br><b>Active</b>
+      </div>
+      
+      <div class="bg-yellow-100 p-4 rounded-xl">
+        🇬🇧 UK <br><b>Standby</b>
+      </div>
+      
+      <div class="bg-red-100 p-4 rounded-xl">
+        🌍 Global Backup <br><b>Syncing</b>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</section>
+
+<section class="py-20 px-6">
+  
+  <div class="max-w-5xl mx-auto bg-white p-8 rounded-2xl shadow">
+    
+    <h2 class="text-3xl font-bold">Medical Records Vault</h2>
+    
+    <p class="text-slate-500 mt-2">
+      Secure patient history storage system
+    </p>
+    
+    <input type="file" class="mt-5 w-full border p-3 rounded">
+    
+    <button class="bg-cyan-500 text-white px-6 py-3 mt-4 rounded">
+      Upload Secure Record
+    </button>
+    
+  </div>
+  
+</section>
+
+<section class="py-20 px-6 bg-red-50">
+
+  <div class="max-w-5xl mx-auto">
+
+    <h2 class="text-3xl font-bold text-red-600">Ambulance Request</h2>
+
+    <div class="bg-white p-6 rounded-2xl shadow mt-6">
+
+      <input placeholder="Your Location"
+             class="w-full p-3 border rounded mb-3">
+
+      <select class="w-full p-3 border rounded mb-3">
+        <option>Normal Pickup</option>
+        <option>Emergency Critical</option>
+      </select>
+
+      <button onclick="dispatchAmbulance()"
+              class="bg-red-500 text-white px-6 py-3 rounded">
+        Request Ambulance
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
 <!-- FOOTER -->
 <footer class="bg-slate-950 text-white py-16 px-4 sm:px-6">
 
@@ -832,7 +958,7 @@
     <div>
 
       <h2 class="text-3xl font-bold">
-        MediCare Connect
+        SupremeCare Connect
       </h2>
 
       <p class="mt-5 text-slate-400 leading-relaxed">
@@ -896,7 +1022,7 @@
 
   <div class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500">
 
-    © 2026 MediCare Connect. All Rights Reserved.
+    © 2026 SupremeCare Connect. All Rights Reserved.
 
   </div>
 
@@ -918,9 +1044,9 @@
   const doctors = [
 
     {
-      name: "Dr. Sarah Wilson",
-      specialty: "Cardiologist",
-      image: "https://randomuser.me/api/portraits/women/44.jpg",
+      name: "Dr. Ese Fredrick Arigbe",
+      specialty: "General Doctor",
+      image: "IMG-20260622-WA0019.jpg",
       experience: "15 Years"
     },
 
@@ -1066,27 +1192,21 @@
 
 </script>
 
-<!-- TAWKTO LIVE CHAT -->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+<script>
 
-(function(){
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(pos => {
+    alert("Location detected: " + pos.coords.latitude + ", " + pos.coords.longitude);
+  });
+}
 
-var s1=document.createElement("script"),
-s0=document.getElementsByTagName("script")[0];
+function dispatchEmergency() {
+  alert("🚨 Emergency sent to nearest hospital + GP");
+}
 
-s1.async=true;
-
-s1.src='https://embed.tawk.to/660000000000000000000000/1hxxxxxxxx';
-
-s1.charset='UTF-8';
-
-s1.setAttribute('crossorigin','*');
-
-s0.parentNode.insertBefore(s1,s0);
-
-})();
-
+function dispatchAmbulance() {
+  alert("🚑 Ambulance is being dispatched to your location");
+}
 </script>
 
 </body>
