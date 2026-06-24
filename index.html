@@ -1,1213 +1,1812 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>SupremeCare Connect - Smart Healthcare Platform</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<title>MediCare Connect | SupremeCare Health Platform</title>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<meta name="description"
+content="MediCare Connect is a modern healthcare platform connecting patients, doctors, hospitals and healthcare services globally.">
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+rel="stylesheet">
 
-    *{
-      font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
-    }
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    body{
-      overflow-x: hidden;
-      background: #f8fafc;
-    }
+<style>
 
-    .hero-bg{
-      background:
-      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-      url('file_000000000c887243bcfdde77bcdea094.png');
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
 
-      background-size: cover;
-      background-position: center;
-    }
+body{
+overflow-x:hidden;
+background:#f8fafc;
+}
 
-    .glass{
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.15);
-    }
+.hero-bg{
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
+url("file_000000000c887243bcfdde77bcdea094.png");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
 
-    .custom-shadow{
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-    }
+.glass{
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.15);
+}
 
-    .doctor-card:hover{
-      transform: translateY(-10px);
-    }
+.custom-shadow{
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
 
-    .gradient-text{
-      background: linear-gradient(to right, #06b6d4, #2563eb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+.gradient-text{
+background:linear-gradient(to right,#06b6d4,#2563eb);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-    .health-tip-card:hover{
-      transform: scale(1.03);
-    }
+.feature-card:hover{
+transform:translateY(-10px);
+}
 
-    .testimonial-card:hover{
-      transform: translateY(-6px);
-    }
+.animate-float{
+animation:float 3s ease-in-out infinite;
+}
 
-    .animate-float{
-      animation: float 3s ease-in-out infinite;
-    }
+@keyframes float{
 
-    @keyframes float{
-      0%,100%{
-        transform: translateY(0px);
-      }
+0%{
+transform:translateY(0);
+}
 
-      50%{
-        transform: translateY(-10px);
-      }
-    }
+50%{
+transform:translateY(-10px);
+}
 
-  </style>
+100%{
+transform:translateY(0);
+}
+
+}
+
+.loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.loader.hidden{
+display:none;
+}
+
+.pulse-circle{
+width:80px;
+height:80px;
+border-radius:50%;
+background:#06b6d4;
+animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(.8);
+opacity:.6;
+}
+
+50%{
+transform:scale(1);
+opacity:1;
+}
+
+100%{
+transform:scale(.8);
+opacity:.6;
+}
+
+}
+
+</style>
 
 </head>
 
 <body>
 
+<!-- LOADER -->
+
+<div class="loader" id="loader">
+
+<div class="pulse-circle"></div>
+
+</div>
+
 <!-- NAVBAR -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-lg shadow-sm">
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+<nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-lg shadow">
 
-    <div class="flex items-center gap-3">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
 
-      <div class="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-white text-xl font-bold">
-        M
-      </div>
+<div class="flex items-center gap-3">
 
-      <div>
-        <h1 class="font-bold text-xl sm:text-2xl text-slate-800">
-          SupremeCare Connect
-        </h1>
+<div class="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-white font-bold text-xl">
 
-        <p class="text-xs text-slate-500">
-          Smart Healthcare Platform
-        </p>
-      </div>
+S
 
-    </div>
+</div>
 
-    <!-- DESKTOP MENU -->
-    <div class="hidden lg:flex gap-8 font-medium text-slate-700">
+<div>
 
-      <a href="#home" class="hover:text-cyan-500 transition">
-        Home
-      </a>
+<h1 class="font-bold text-xl md:text-2xl text-slate-800">
+MediCare Connect
+</h1>
 
-      <a href="#services" class="hover:text-cyan-500 transition">
-        Services
-      </a>
+<p class="text-xs text-slate-500">
+Smart Healthcare Platform
+</p>
 
-      <a href="#doctors" class="hover:text-cyan-500 transition">
-        Doctors
-      </a>
+</div>
 
-      <a href="#tips" class="hover:text-cyan-500 transition">
-        Health Tips
-      </a>
+</div>
 
-      <a href="#testimonials" class="hover:text-cyan-500 transition">
-        Testimonials
-      </a>
+<div class="hidden lg:flex items-center gap-8 font-medium">
 
-      <a href="#contact" class="hover:text-cyan-500 transition">
-        Contact
-      </a>
+<a href="#home" class="hover:text-cyan-500">
+Home
+</a>
 
-    </div>
+<a href="#about" class="hover:text-cyan-500">
+About
+</a>
 
-    <a href="https://wa.me/2348169395022"
-      target="_blank"
-      class="hidden sm:flex bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold transition">
+<a href="#features" class="hover:text-cyan-500">
+Features
+</a>
 
-      Book Appointment
+<a href="#doctors" class="hover:text-cyan-500">
+Doctors
+</a>
 
-    </a>
+<a href="#appointments" class="hover:text-cyan-500">
+Appointments
+</a>
 
-  </div>
+<a href="#contact" class="hover:text-cyan-500">
+Contact
+</a>
+
+</div>
+
+<div class="flex items-center gap-3">
+
+<button
+onclick="openChat()"
+class="hidden md:block bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold">
+
+Talk To Doctor
+
+</button>
+
+<button
+onclick="toggleMenu()"
+class="lg:hidden text-2xl">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- MOBILE MENU -->
+
+<div
+id="mobileMenu"
+class="hidden bg-white border-t">
+
+<div class="flex flex-col p-5 gap-4">
+
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#features">Features</a>
+<a href="#doctors">Doctors</a>
+<a href="#appointments">Appointments</a>
+<a href="#contact">Contact</a>
+
+<button
+onclick="openChat()"
+class="bg-cyan-500 text-white py-3 rounded-xl">
+
+Talk To Doctor
+
+</button>
+
+</div>
+
+</div>
 
 </nav>
 
-<!-- HERO SECTION -->
-<section id="home"
-  class="hero-bg min-h-screen flex items-center text-white px-4 sm:px-6 pt-32 pb-20">
+<!-- HERO -->
 
-  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center w-full">
+<section
+id="home"
+class="hero-bg min-h-screen flex items-center text-white pt-32 pb-20 px-4">
 
-    <!-- LEFT -->
-    <div>
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
 
-      <span class="bg-white/20 px-5 py-2 rounded-full text-sm inline-block mb-6">
-        Trusted by Thousands of Patients
-      </span>
+<div>
 
-      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight">
+<span class="bg-white/20 px-5 py-2 rounded-full text-sm">
 
-        Connect With
-        <span class="text-cyan-300">
-          Professional Doctors
-        </span>
-        Anytime
+Trusted Healthcare Network
 
-      </h1>
+</span>
 
-      <p class="mt-8 text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
+<h1 class="text-5xl lg:text-7xl font-extrabold mt-8 leading-tight">
 
-        SupremeCare Connect helps patients communicate directly with certified healthcare professionals,
-        get medical advice, book consultations and receive healthcare support online 24/7.
+Modern
 
-      </p>
+<span class="text-cyan-300">
 
-      <div class="flex flex-wrap gap-5 mt-10">
+Healthcare
 
-        <a href="#doctors"
-          class="bg-cyan-500 hover:bg-cyan-600 px-8 py-4 rounded-full font-semibold text-lg transition">
+</span>
 
-          Find a Doctor
+At Your Fingertips
 
-        </a>
+</h1>
 
-        <a href="#services"
-          class="bg-white/10 border border-white/20 hover:bg-white/20 px-8 py-4 rounded-full font-semibold text-lg transition">
+<p class="mt-8 text-lg text-slate-200 max-w-2xl">
 
-          Learn More
+Connect with certified doctors, book appointments,
+upload medical records and access quality healthcare
+support from anywhere in the world.
 
-        </a>
+</p>
 
-      </div>
+<div class="flex flex-wrap gap-4 mt-10">
 
-      <!-- STATS -->
-      <div class="grid grid-cols-3 gap-4 sm:gap-6 mt-14">
+<button
+onclick="openChat()"
+class="bg-cyan-500 hover:bg-cyan-600 px-8 py-4 rounded-full font-semibold">
 
-        <div>
-          <h2 class="text-3xl sm:text-4xl font-bold">
-            500+
-          </h2>
+Talk To Doctor
 
-          <p class="text-slate-300">
-            Doctors
-          </p>
-        </div>
+</button>
 
-        <div>
-          <h2 class="text-3xl sm:text-4xl font-bold">
-            20k+
-          </h2>
+<a href="#features"
+class="border border-white px-8 py-4 rounded-full">
 
-          <p class="text-slate-300">
-            Patients
-          </p>
-        </div>
+Explore Features
 
-        <div>
-          <h2 class="text-3xl sm:text-4xl font-bold">
-            24/7
-          </h2>
+</a>
 
-          <p class="text-slate-300">
-            Support
-          </p>
-        </div>
+</div>
 
-      </div>
+<div class="grid grid-cols-3 gap-5 mt-14">
 
-    </div>
+<div>
 
-    <!-- RIGHT -->
-    <div class="animate-float">
+<h2 class="text-4xl font-bold">
 
-      <div class="glass rounded-[35px] p-6 sm:p-8">
+500+
 
-        <div class="flex items-center gap-4 flex-wrap">
+</h2>
 
-          <img
-            src="IMG-20260622-WA0019.jpg"
-            class="w-20 h-20 rounded-full object-cover border-4 border-cyan-400"
-          />
+<p>
+Doctors
+</p>
 
-          <div>
+</div>
 
-            <h2 class="text-2xl font-bold">
-              Dr. Ese Fredrick Arigbe
-            </h2>
+<div>
 
-            <p class="text-cyan-300 font-semibold">
-              General Doctor
-            </p>
+<h2 class="text-4xl font-bold">
 
-            <div class="flex text-yellow-400 mt-2 gap-1">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
+25K+
 
-          </div>
+</h2>
 
-        </div>
+<p>
+Patients
+</p>
 
-        <div class="grid grid-cols-2 gap-4 mt-8">
+</div>
 
-          <div class="bg-white/10 rounded-2xl p-5 text-center">
+<div>
 
-            <i class="fa-solid fa-user-doctor text-cyan-300 text-3xl"></i>
+<h2 class="text-4xl font-bold">
 
-            <h3 class="text-2xl font-bold mt-3">
-              15+
-            </h3>
+24/7
 
-            <p class="text-slate-200 text-sm">
-              Years Experience
-            </p>
+</h2>
 
-          </div>
+<p>
+Support
+</p>
 
-          <div class="bg-white/10 rounded-2xl p-5 text-center">
+</div>
 
-            <i class="fa-solid fa-heart-pulse text-red-300 text-3xl"></i>
+</div>
 
-            <h3 class="text-2xl font-bold mt-3">
-              4.9
-            </h3>
+</div>
 
-            <p class="text-slate-200 text-sm">
-              Patient Rating
-            </p>
+<div class="animate-float">
 
-          </div>
+<div class="glass rounded-[35px] p-8">
 
-        </div>
+<img
+src="IMG-20260622-WA0019.jpg"
+class="w-36 h-36 rounded-full object-cover mx-auto border-4 border-cyan-400">
 
-        <a href="https://wa.me/2348169395022"
-          target="_blank"
-          class="mt-8 block text-center w-full bg-cyan-500 hover:bg-cyan-600 text-white py-4 rounded-2xl text-lg font-semibold transition">
+<h2 class="text-center text-3xl font-bold mt-6">
 
-          Start Consultation
+Dr. Ese Fredrick Arigbe
 
-        </a>
+</h2>
 
-      </div>
+<p class="text-center text-cyan-300 mt-2">
 
-    </div>
+General Practitioner
 
-  </div>
+</p>
+
+<div class="grid grid-cols-2 gap-4 mt-8">
+
+<div class="bg-white/10 p-5 rounded-2xl text-center">
+
+<i class="fa-solid fa-user-doctor text-3xl text-cyan-300"></i>
+
+<h3 class="text-2xl font-bold mt-3">
+15+
+</h3>
+
+<p>
+Years Experience
+</p>
+
+</div>
+
+<div class="bg-white/10 p-5 rounded-2xl text-center">
+
+<i class="fa-solid fa-star text-yellow-400 text-3xl"></i>
+
+<h3 class="text-2xl font-bold mt-3">
+4.9
+</h3>
+
+<p>
+Rating
+</p>
+
+</div>
+
+</div>
+
+<button
+onclick="openChat()"
+class="mt-8 w-full bg-cyan-500 py-4 rounded-2xl font-semibold">
+
+Book Appointment
+
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
-<!-- EMERGENCY DISPATCH SYSTEM -->
-<section class="py-20 px-6 bg-red-50" id="emergency">
-  
-  <div class="max-w-7xl mx-auto">
-    
-    <h2 class="text-4xl font-extrabold text-red-600">
-      Emergency Dispatch System
-    </h2>
-    
-    <p class="mt-4 text-slate-600">
-      Automatically connects you to the nearest hospital + frontline doctor.
-    </p>
-    
-    <div class="grid md:grid-cols-3 gap-6 mt-10">
-      
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="font-bold">Severity Level</h3>
-        <select class="w-full mt-3 p-3 border rounded">
-          <option>Low</option>
-          <option>Medium</option>
-          <option>High</option>
-          <option>Critical</option>
-        </select>
-      </div>
-      
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="font-bold">Auto Location Detection</h3>
-        <button onclick="getLocation()" class="bg-cyan-500 text-white px-4 py-2 mt-3 rounded">
-          Detect My Location
-        </button>
-      </div>
-      
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="font-bold">Dispatch Action</h3>
-        <button onclick="dispatchEmergency()" class="bg-red-500 text-white px-4 py-2 mt-3 rounded">
-          Send Emergency
-        </button>
-      </div>
-      
-    </div>
-    
-  </div>
-  
-</section>
+<!-- ABOUT -->
 
-<!-- SERVICES -->
-<section id="services" class="py-24 px-4 sm:px-6">
+<section
+id="about"
+class="py-24 px-4">
 
-  <div class="max-w-7xl mx-auto">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
-    <div class="text-center mb-20">
+<div>
 
-      <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-800">
+<img
+src="file_000000000c887243bcfdde77bcdea094.png"
+class="rounded-[35px] shadow-xl">
 
-        Our
-        <span class="gradient-text">
-          Healthcare Services
-        </span>
+</div>
 
-      </h2>
+<div>
 
-      <p class="mt-5 text-slate-500 text-lg max-w-3xl mx-auto">
-        Premium healthcare solutions designed for modern patients globally.
-      </p>
+<h2 class="text-5xl font-extrabold">
 
-    </div>
+About
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<span class="gradient-text">
 
-      <!-- CARD -->
-      <div class="bg-white rounded-[30px] p-8 custom-shadow hover:scale-105 transition">
+MediCare
 
-        <div class="w-20 h-20 bg-cyan-100 rounded-3xl flex items-center justify-center">
+</span>
 
-          <i class="fa-solid fa-video text-cyan-500 text-3xl"></i>
+</h2>
 
-        </div>
+<p class="mt-8 text-slate-600 leading-relaxed">
 
-        <h3 class="mt-6 text-2xl font-bold text-slate-800">
-          Video Consultation
-        </h3>
+MediCare Connect is an intelligent healthcare
+ecosystem designed to connect patients, healthcare
+professionals and hospitals through one powerful
+digital platform.
 
-        <p class="mt-4 text-slate-500">
-          Connect with doctors securely through online consultations.
-        </p>
+</p>
 
-      </div>
+<p class="mt-5 text-slate-600 leading-relaxed">
 
-      <div class="bg-white rounded-[30px] p-8 custom-shadow hover:scale-105 transition">
+Patients can search for doctors, book appointments,
+receive healthcare guidance, upload medical records
+and access health education resources from anywhere.
 
-        <div class="w-20 h-20 bg-blue-100 rounded-3xl flex items-center justify-center">
+</p>
 
-          <i class="fa-solid fa-calendar-check text-blue-500 text-3xl"></i>
+<div class="grid grid-cols-2 gap-6 mt-10">
 
-        </div>
+<div class="bg-white p-6 rounded-3xl custom-shadow">
 
-        <h3 class="mt-6 text-2xl font-bold text-slate-800">
-          Appointment Booking
-        </h3>
+<i class="fa-solid fa-hospital text-cyan-500 text-4xl"></i>
 
-        <p class="mt-4 text-slate-500">
-          Schedule appointments with specialists in minutes.
-        </p>
+<h3 class="font-bold text-xl mt-4">
 
-      </div>
+Global Hospitals
 
-      <div class="bg-white rounded-[30px] p-8 custom-shadow hover:scale-105 transition">
+</h3>
 
-        <div class="w-20 h-20 bg-green-100 rounded-3xl flex items-center justify-center">
+</div>
 
-          <i class="fa-solid fa-notes-medical text-green-500 text-3xl"></i>
+<div class="bg-white p-6 rounded-3xl custom-shadow">
 
-        </div>
+<i class="fa-solid fa-user-doctor text-cyan-500 text-4xl"></i>
 
-        <h3 class="mt-6 text-2xl font-bold text-slate-800">
-          Medical Records
-        </h3>
+<h3 class="font-bold text-xl mt-4">
 
-        <p class="mt-4 text-slate-500">
-          Access and manage digital health records securely.
-        </p>
+Expert Doctors
 
-      </div>
+</h3>
 
-      <div class="bg-white rounded-[30px] p-8 custom-shadow hover:scale-105 transition">
+</div>
 
-        <div class="w-20 h-20 bg-red-100 rounded-3xl flex items-center justify-center">
+</div>
 
-          <i class="fa-solid fa-truck-medical text-red-500 text-3xl"></i>
+</div>
 
-        </div>
-
-        <h3 class="mt-6 text-2xl font-bold text-slate-800">
-          Emergency Support
-        </h3>
-
-        <p class="mt-4 text-slate-500">
-          Quick medical assistance and emergency response.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
-<!-- DOCTORS -->
+<!-- STATS -->
+
+<section class="py-20 bg-cyan-500 text-white">
+
+<div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-10 text-center">
+
+<div>
+<h2 class="text-5xl font-bold">500+</h2>
+<p>Doctors</p>
+</div>
+
+<div>
+<h2 class="text-5xl font-bold">150+</h2>
+<p>Hospitals</p>
+</div>
+
+<div>
+<h2 class="text-5xl font-bold">25K+</h2>
+<p>Patients</p>
+</div>
+
+<div>
+<h2 class="text-5xl font-bold">24/7</h2>
+<p>Support</p>
+</div>
+
+</div>
+<br />
+</section>
+
+<!-- FULL NAME -->
+<label class="font-semibold">Full Name</label>
+<input 
+  type="text" 
+  id="fullname" 
+  placeholder="Enter your full name (e.g. John Doe)" 
+  required 
+  class="w-full mt-2 p-4 rounded-xl border mb-4"
+/>
+
+<!-- EMAIL -->
+<label class="font-semibold">Email Address</label>
+<input 
+  type="email" 
+  id="email" 
+  placeholder="Enter your active email address" 
+  required 
+  class="w-full mt-2 p-4 rounded-xl border mb-4"
+/>
+
+<!-- PHONE -->
+<label class="font-semibold">Phone Number</label>
+<input 
+  type="tel" 
+  id="phone" 
+  placeholder="Enter your phone number (e.g. +2348012345678)" 
+  required 
+  class="w-full mt-2 p-4 rounded-xl border mb-4"
+/>
+
+<!-- DOCTOR -->
+<label class="font-semibold">Preferred Doctor</label>
+<select 
+  id="doctor" 
+  class="w-full mt-2 p-4 rounded-xl border mb-4"
+>
+  <option disabled selected>Select a specialist</option>
+  <option>General Practitioner</option>
+  <option>Cardiologist</option>
+  <option>Neurologist</option>
+  <option>Dermatologist</option>
+  <option>Pediatrician</option>
+  <option>Gynecologist</option>
+</select>
+
+<!-- DATE -->
+<label class="font-semibold">Appointment Date</label>
+<input 
+  type="date" 
+  id="appointmentDate" 
+  required 
+  class="w-full mt-2 p-4 rounded-xl border mb-4"
+/>
+
+<!-- TIME -->
+<label class="font-semibold">Appointment Time</label>
+<input 
+  type="time" 
+  id="appointmentTime" 
+  required 
+  class="w-full mt-2 p-4 rounded-xl border mb-4"
+/>
+
+<!-- REASON -->
+<label class="font-semibold">Reason for Appointment</label>
+<textarea 
+  id="reason" 
+  rows="6" 
+  placeholder="Describe your symptoms, condition, or reason for visiting the doctor..." 
+  required 
+  class="w-full mt-2 p-4 rounded-xl border mb-4"
+></textarea>
+<button
+  type="submit"
+  class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-4 rounded-2xl font-semibold text-lg transition"
+>
+  Submit Appointment
+</button>
+
+<!-- FEATURES -->
+
+<section
+id="features"
+class="py-24 px-4">
+
+<div class="max-w-7xl mx-auto">
+
+<div class="text-center mb-20">
+
+<h2 class="text-5xl font-extrabold">
+
+Platform
+
+<span class="gradient-text">
+
+Features
+
+</span>
+
+</h2>
+
+<p class="text-slate-500 mt-4">
+
+Powerful healthcare solutions for modern patients.
+
+</p>
+
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+<div class="feature-card bg-white p-8 rounded-[30px] custom-shadow transition">
+
+<i class="fa-solid fa-comments text-cyan-500 text-5xl"></i>
+
+<h3 class="text-2xl font-bold mt-6">
+Talk To Doctor
+</h3>
+
+<p class="mt-4 text-slate-500">
+Instant healthcare communication.
+</p>
+
+</div>
+
+<div class="feature-card bg-white p-8 rounded-[30px] custom-shadow transition">
+
+<i class="fa-solid fa-calendar-check text-blue-500 text-5xl"></i>
+
+<h3 class="text-2xl font-bold mt-6">
+Book Appointment
+</h3>
+
+<p class="mt-4 text-slate-500">
+Schedule consultations online.
+</p>
+
+</div>
+
+<div class="feature-card bg-white p-8 rounded-[30px] custom-shadow transition">
+
+<i class="fa-solid fa-file-medical text-green-500 text-5xl"></i>
+
+<h3 class="text-2xl font-bold mt-6">
+Medical Records
+</h3>
+
+<p class="mt-4 text-slate-500">
+Secure digital storage system.
+</p>
+
+</div>
+
+<div class="feature-card bg-white p-8 rounded-[30px] custom-shadow transition">
+
+<i class="fa-solid fa-globe text-purple-500 text-5xl"></i>
+
+<h3 class="text-2xl font-bold mt-6">
+Global Network
+</h3>
+
+<p class="mt-4 text-slate-500">
+Worldwide healthcare access.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+window.addEventListener("load",()=>{
+
+document.getElementById("loader")
+.classList.add("hidden");
+
+});
+
+function toggleMenu(){
+
+document
+.getElementById("mobileMenu")
+.classList.toggle("hidden");
+
+}
+
+function openChat(){
+
+if(typeof Tawk_API !== "undefined"){
+
+Tawk_API.maximize();
+
+}else{
+
+alert("_");
+
+}
+
+}
+
+</script>
+<!-- ========================= -->
+<!-- PART B - HEALTHCARE CORE -->
+<!-- ========================= -->
+
+<!-- DOCTORS DIRECTORY -->
+
 <section id="doctors" class="py-24 bg-slate-100 px-4 sm:px-6">
 
-  <div class="max-w-7xl mx-auto">
+<div class="max-w-7xl mx-auto">
 
-    <div class="flex flex-col lg:flex-row justify-between gap-6 items-center mb-16">
+<div class="text-center mb-16">
 
-      <div>
+<h2 class="text-4xl md:text-5xl font-extrabold text-slate-800">
 
-        <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-800">
+Meet Our
 
-          Meet Our
-          <span class="gradient-text">
-            Expert Doctors
-          </span>
+<span class="gradient-text">
+Expert Doctors
+</span>
 
-        </h2>
+</h2>
 
-        <p class="mt-4 text-slate-500 text-lg">
-          Certified healthcare professionals available online.
-        </p>
+<p class="mt-4 text-slate-500 text-lg">
+Search and connect with experienced healthcare professionals.
+</p>
 
-      </div>
+</div>
 
-      <input
-        type="text"
-        id="searchDoctor"
-        placeholder="Search doctor..."
-        class="w-full lg:w-96 px-6 py-4 rounded-2xl outline-none custom-shadow"
-      />
+<div class="mb-10">
 
-    </div>
+<input
+type="text"
+id="doctorSearch"
+placeholder="Search by doctor name or specialty..."
+class="w-full p-5 rounded-2xl border border-slate-200 outline-none focus:ring-2 focus:ring-cyan-500">
 
-    <!-- DOCTOR GRID -->
-    <div id="doctorContainer"
-      class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+</div>
 
-    </div>
+<div
+id="doctorContainer"
+class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-  </div>
+</div>
+
+</div>
+
+</section>
+
+<!-- APPOINTMENT BOOKING -->
+
+<section id="appointments" class="py-24 px-4 sm:px-6">
+
+<div class="max-w-7xl mx-auto">
+
+<div class="text-center mb-16">
+
+<h2 class="text-4xl md:text-5xl font-extrabold">
+
+Book An
+
+<span class="gradient-text">
+Appointment
+</span>
+
+</h2>
+
+<p class="mt-4 text-slate-500">
+Fill the form below and start your healthcare journey.
+</p>
+
+</div>
+
+<div class="bg-white rounded-[35px] p-8 md:p-12 custom-shadow">
+
+<form id="appointmentForm">
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div>
+
+<label class="font-semibold">
+Full Name
+</label>
+
+<input
+type="text"
+required
+class="w-full mt-2 p-4 rounded-xl border">
+
+</div>
+
+<div>
+
+<label class="font-semibold">
+Email Address
+</label>
+
+<input
+type="email"
+required
+class="w-full mt-2 p-4 rounded-xl border">
+
+</div>
+
+<div>
+
+<label class="font-semibold">
+Phone Number
+</label>
+
+<input
+type="tel"
+required
+class="w-full mt-2 p-4 rounded-xl border">
+
+</div>
+
+<div>
+
+<label class="font-semibold">
+Preferred Doctor
+</label>
+
+<select
+class="w-full mt-2 p-4 rounded-xl border">
+
+<option>General Practitioner</option>
+<option>Cardiologist</option>
+<option>Neurologist</option>
+<option>Dermatologist</option>
+<option>Pediatrician</option>
+<option>Gynecologist</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label class="font-semibold">
+Appointment Date
+</label>
+
+<input
+type="date"
+required
+class="w-full mt-2 p-4 rounded-xl border">
+
+</div>
+
+<div>
+
+<label class="font-semibold">
+Appointment Time
+</label>
+
+<input
+type="time"
+required
+class="w-full mt-2 p-4 rounded-xl border">
+
+</div>
+
+</div>
+
+<div class="mt-6">
+
+<label class="font-semibold">
+Reason For Appointment
+</label>
+
+<textarea
+rows="6"
+class="w-full mt-2 p-4 rounded-xl border"
+placeholder="Describe your health concern..."></textarea>
+
+</div>
+
+<button
+type="submit"
+class="mt-8 bg-cyan-500 hover:bg-cyan-600 text-white px-10 py-4 rounded-2xl font-semibold">
+
+Submit Appointment
+
+</button>
+
+</form>
+
+</div>
+
+</div>
 
 </section>
 
-<!-- HEALTH TIPS -->
-<section id="tips" class="py-24 px-4 sm:px-6">
+<!-- GLOBAL HOSPITAL NETWORK -->
 
-  <div class="max-w-7xl mx-auto">
+<section id="hospitals" class="py-24 bg-slate-100 px-4 sm:px-6">
 
-    <div class="text-center mb-20">
+<div class="max-w-7xl mx-auto">
 
-      <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-800">
+<div class="text-center mb-16">
 
-        Daily
-        <span class="gradient-text">
-          Health Tips
-        </span>
+<h2 class="text-4xl md:text-5xl font-extrabold">
 
-      </h2>
+Global
 
-      <p class="mt-4 text-slate-500 text-lg">
-        Stay healthy with expert health recommendations.
-      </p>
+<span class="gradient-text">
+Hospital Network
+</span>
 
-    </div>
+</h2>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<p class="mt-4 text-slate-500">
+Connected healthcare institutions around the world.
+</p>
 
-      <!-- TIP -->
-      <div class="health-tip-card bg-white rounded-[30px] p-8 custom-shadow transition">
+</div>
 
-        <i class="fa-solid fa-glass-water text-cyan-500 text-5xl"></i>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <h3 class="text-2xl font-bold mt-6 text-slate-800">
-          Drink More Water
-        </h3>
+<div class="bg-green-100 p-6 rounded-3xl">
 
-        <p class="mt-4 text-slate-500">
-          Staying hydrated improves energy levels and overall body performance.
-        </p>
+<h3 class="font-bold text-xl">
+🇳🇬 Nigeria
+</h3>
 
-      </div>
+<p class="mt-3">
+Active Hospital Network
+</p>
 
-      <div class="health-tip-card bg-white rounded-[30px] p-8 custom-shadow transition">
+</div>
 
-        <i class="fa-solid fa-heart-pulse text-red-500 text-5xl"></i>
+<div class="bg-blue-100 p-6 rounded-3xl">
 
-        <h3 class="text-2xl font-bold mt-6 text-slate-800">
-          Exercise Daily
-        </h3>
+<h3 class="font-bold text-xl">
+🇺🇸 USA
+</h3>
 
-        <p class="mt-4 text-slate-500">
-          Regular exercise helps prevent chronic diseases and boosts immunity.
-        </p>
+<p class="mt-3">
+Connected Hospitals
+</p>
 
-      </div>
+</div>
 
-      <div class="health-tip-card bg-white rounded-[30px] p-8 custom-shadow transition">
+<div class="bg-purple-100 p-6 rounded-3xl">
 
-        <i class="fa-solid fa-bed text-blue-500 text-5xl"></i>
+<h3 class="font-bold text-xl">
+🇬🇧 United Kingdom
+</h3>
 
-        <h3 class="text-2xl font-bold mt-6 text-slate-800">
-          Sleep Well
-        </h3>
+<p class="mt-3">
+Partner Hospitals
+</p>
 
-        <p class="mt-4 text-slate-500">
-          Good sleep improves mental focus and supports recovery.
-        </p>
+</div>
 
-      </div>
+<div class="bg-yellow-100 p-6 rounded-3xl">
 
-    </div>
+<h3 class="font-bold text-xl">
+🌍 Global Access
+</h3>
 
-  </div>
+<p class="mt-3">
+Worldwide Integration
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
+
+<!-- MEDICAL RECORDS VAULT -->
+
+<section id="records" class="py-24 px-4 sm:px-6">
+
+<div class="max-w-5xl mx-auto">
+
+<div class="bg-white rounded-[35px] p-8 md:p-12 custom-shadow">
+
+<h2 class="text-4xl font-extrabold">
+
+Medical Records
+
+<span class="gradient-text">
+Vault
+</span>
+
+</h2>
+
+<p class="mt-4 text-slate-500">
+Upload and securely manage healthcare documents.
+</p>
+
+<div class="mt-10">
+
+<label class="font-semibold">
+Patient ID
+</label>
+
+<input
+type="text"
+placeholder="Enter Patient ID"
+class="w-full mt-2 p-4 rounded-xl border">
+
+</div>
+
+<div class="mt-6">
+
+<label class="font-semibold">
+Medical Document
+</label>
+
+<input
+type="file"
+class="w-full mt-2 p-4 rounded-xl border">
+
+</div>
+
+<div class="mt-6">
+
+<label class="font-semibold">
+Document Description
+</label>
+
+<textarea
+rows="5"
+class="w-full mt-2 p-4 rounded-xl border"
+placeholder="Describe uploaded document"></textarea>
+
+</div>
+
+<button
+class="mt-8 bg-cyan-500 hover:bg-cyan-600 text-white px-10 py-4 rounded-2xl font-semibold">
+
+Upload Secure Record
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+/* DOCTORS DATA */
+
+const doctors = [
+
+{
+name:"Onyeka-Udechukwu Mir",
+specialty:"General Practitioner",
+experience:"15 Years",
+image:"file_000000000c887243bcfdde77bcdea094.png"
+},
+
+{
+name:"Dr. Michael Brown",
+specialty:"Neurologist",
+experience:"12 Years",
+image:"https://randomuser.me/api/portraits/men/32.jpg"
+},
+
+{
+name:"Dr. Emma Johnson",
+specialty:"Dermatologist",
+experience:"10 Years",
+image:"https://randomuser.me/api/portraits/women/65.jpg"
+},
+
+{
+name:"Dr. Daniel Smith",
+specialty:"Pediatrician",
+experience:"11 Years",
+image:"https://randomuser.me/api/portraits/men/45.jpg"
+},
+
+{
+name:"Dr. Olivia White",
+specialty:"Gynecologist",
+experience:"9 Years",
+image:"https://randomuser.me/api/portraits/women/68.jpg"
+},
+
+{
+name:"Dr. James Lee",
+specialty:"Cardiologist",
+experience:"14 Years",
+image:"https://randomuser.me/api/portraits/men/51.jpg"
+}
+
+];
+
+const doctorContainer =
+document.getElementById("doctorContainer");
+
+function renderDoctors(data){
+
+doctorContainer.innerHTML="";
+
+data.forEach(doctor=>{
+
+doctorContainer.innerHTML += `
+
+<div class="bg-white rounded-[35px] p-8 custom-shadow hover:-translate-y-2 transition">
+
+<img
+src="${doctor.image}"
+class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-cyan-500">
+
+<div class="text-center mt-6">
+
+<h3 class="text-2xl font-bold">
+${doctor.name}
+</h3>
+
+<p class="text-cyan-500 font-semibold mt-2">
+${doctor.specialty}
+</p>
+
+<p class="mt-3 text-slate-500">
+Experience: ${doctor.experience}
+</p>
+
+<button
+onclick="openChat()"
+class="mt-6 bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full">
+
+Talk To Doctor
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+renderDoctors(doctors);
+
+document
+.getElementById("doctorSearch")
+.addEventListener("keyup",function(){
+
+const value =
+this.value.toLowerCase();
+
+const filtered =
+doctors.filter(doc=>
+
+doc.name.toLowerCase().includes(value)
+||
+doc.specialty.toLowerCase().includes(value)
+
+);
+
+renderDoctors(filtered);
+
+});
+
+document
+.getElementById("appointmentForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+alert(
+"Appointment submitted successfully. Our team will contact you shortly."
+);
+
+if(typeof Tawk_API !== "undefined"){
+
+Tawk_API.maximize();
+
+}
+
+});
+
+</script>
+<!-- ========================= -->
+<!-- PART C -->
+<!-- Testimonials + Contact -->
+<!-- Footer + Dark Mode -->
+<!-- Notifications -->
+<!-- Tawk.to Integration -->
+<!-- Advanced Animations -->
+<!-- ========================= -->
 
 <!-- TESTIMONIALS -->
-<section id="testimonials"
-  class="py-24 bg-slate-100 px-4 sm:px-6">
 
-  <div class="max-w-7xl mx-auto">
+<section id="testimonials" class="py-24 bg-slate-100 px-4">
 
-    <div class="text-center mb-20">
+<div class="max-w-7xl mx-auto">
 
-      <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-800">
+<div class="text-center mb-16">
 
-        Patient
-        <span class="gradient-text">
-          Testimonials
-        </span>
+<h2 class="text-5xl font-extrabold">
 
-      </h2>
+Patient
 
-      <p class="mt-4 text-slate-500 text-lg">
-        Hear from our satisfied patients.
-      </p>
+<span class="gradient-text">
 
-    </div>
+Testimonials
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+</span>
 
-      <!-- TESTIMONIAL -->
-      <div class="testimonial-card bg-white rounded-[30px] p-8 custom-shadow transition">
+</h2>
 
-        <div class="flex text-yellow-400 gap-1">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-        </div>
+<p class="text-slate-500 mt-4">
+Trusted by patients around the world.
+</p>
 
-        <p class="mt-6 text-slate-500 leading-relaxed">
-          “Amazing healthcare service. The doctors were responsive and professional.”
-        </p>
+</div>
 
-        <div class="mt-6 flex items-center gap-4">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          <img
-            src="https://randomuser.me/api/portraits/women/32.jpg"
-            class="w-14 h-14 rounded-full object-cover"
-          />
+<div class="bg-white rounded-[30px] p-8 custom-shadow">
 
-          <div>
+<div class="flex text-yellow-400 gap-1">
 
-            <h4 class="font-bold text-slate-800">
-              Grace Williams
-            </h4>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
 
-            <p class="text-sm text-slate-500">
-              Patient
-            </p>
+</div>
 
-          </div>
+<p class="mt-5 text-slate-600">
+"The consultation process was very smooth and professional."
+</p>
 
-        </div>
+<div class="mt-6 flex items-center gap-4">
 
-      </div>
+<img
+src="https://randomuser.me/api/portraits/women/32.jpg"
+class="w-14 h-14 rounded-full">
 
-      <div class="testimonial-card bg-white rounded-[30px] p-8 custom-shadow transition">
+<div>
 
-        <div class="flex text-yellow-400 gap-1">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-        </div>
+<h4 class="font-bold">
+Grace Williams
+</h4>
 
-        <p class="mt-6 text-slate-500 leading-relaxed">
-          “Very easy to use and the WhatsApp consultation was fast.”
-        </p>
+<p class="text-sm text-slate-500">
+Patient
+</p>
 
-        <div class="mt-6 flex items-center gap-4">
+</div>
 
-          <img
-            src="https://randomuser.me/api/portraits/men/40.jpg"
-            class="w-14 h-14 rounded-full object-cover"
-          />
+</div>
 
-          <div>
+</div>
 
-            <h4 class="font-bold text-slate-800">
-              David Johnson
-            </h4>
+<div class="bg-white rounded-[30px] p-8 custom-shadow">
 
-            <p class="text-sm text-slate-500">
-              Patient
-            </p>
+<div class="flex text-yellow-400 gap-1">
 
-          </div>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
 
-        </div>
+</div>
 
-      </div>
+<p class="mt-5 text-slate-600">
+"Booking appointments online saved me a lot of time."
+</p>
 
-      <div class="testimonial-card bg-white rounded-[30px] p-8 custom-shadow transition">
+<div class="mt-6 flex items-center gap-4">
 
-        <div class="flex text-yellow-400 gap-1">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-        </div>
+<img
+src="https://randomuser.me/api/portraits/men/45.jpg"
+class="w-14 h-14 rounded-full">
 
-        <p class="mt-6 text-slate-500 leading-relaxed">
-          “Professional healthcare support available anytime.”
-        </p>
+<div>
 
-        <div class="mt-6 flex items-center gap-4">
+<h4 class="font-bold">
+David Johnson
+</h4>
 
-          <img
-            src="https://randomuser.me/api/portraits/women/55.jpg"
-            class="w-14 h-14 rounded-full object-cover"
-          />
+<p class="text-sm text-slate-500">
+Patient
+</p>
 
-          <div>
+</div>
 
-            <h4 class="font-bold text-slate-800">
-              Sophia Brown
-            </h4>
+</div>
 
-            <p class="text-sm text-slate-500">
-              Patient
-            </p>
+</div>
 
-          </div>
+<div class="bg-white rounded-[30px] p-8 custom-shadow">
 
-        </div>
+<div class="flex text-yellow-400 gap-1">
 
-      </div>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
 
-    </div>
+</div>
 
-  </div>
+<p class="mt-5 text-slate-600">
+"Excellent healthcare support available anytime."
+</p>
+
+<div class="mt-6 flex items-center gap-4">
+
+<img
+src="https://randomuser.me/api/portraits/women/50.jpg"
+class="w-14 h-14 rounded-full">
+
+<div>
+
+<h4 class="font-bold">
+Sophia Brown
+</h4>
+
+<p class="text-sm text-slate-500">
+Patient
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="py-24 px-4 sm:px-6">
+<!-- CONTACT CENTER -->
 
-  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+<section id="contact" class="py-24 px-4">
 
-    <!-- FORM -->
-    <div class="bg-white rounded-[35px] p-8 sm:p-10 custom-shadow">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
 
-      <h2 class="text-4xl font-extrabold text-slate-800">
-        Contact A Doctor
-      </h2>
+<div class="bg-white rounded-[35px] p-10 custom-shadow">
 
-      <p class="mt-4 text-slate-500">
-        Fill your details and connect with a healthcare professional.
-      </p>
+<h2 class="text-4xl font-extrabold">
+Contact Center
+</h2>
 
-      <form id="contactForm" class="mt-10 space-y-6">
+<p class="mt-4 text-slate-500">
+Send us a message and our team will respond quickly.
+</p>
 
-        <input
-          type="text"
-          id="name"
-          placeholder="Full Name"
-          class="w-full px-6 py-4 rounded-2xl bg-slate-100 outline-none"
-          required
-        />
+<form id="contactForm" class="mt-8">
 
-        <input
-          type="email"
-          id="email"
-          placeholder="Email Address"
-          class="w-full px-6 py-4 rounded-2xl bg-slate-100 outline-none"
-          required
-        />
+<input
+type="text"
+placeholder="Full Name"
+class="w-full p-4 border rounded-xl mb-4"
+required>
 
-        <textarea
-          rows="6"
-          id="message"
-          placeholder="Describe your health issue..."
-          class="w-full px-6 py-4 rounded-2xl bg-slate-100 outline-none resize-none"
-          required></textarea>
+<input
+type="email"
+placeholder="Email Address"
+class="w-full p-4 border rounded-xl mb-4"
+required>
 
-        <button
-          type="submit"
-          class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-4 rounded-2xl text-lg font-semibold transition">
+<textarea
+rows="6"
+placeholder="Your Message"
+class="w-full p-4 border rounded-xl mb-4"
+required></textarea>
 
-          Send via WhatsApp
+<button
+type="submit"
+class="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-xl">
 
-        </button>
+Send Message
 
-      </form>
+</button>
 
-    </div>
+</form>
 
-    <!-- CONTACT INFO -->
-    <div class="bg-slate-900 rounded-[35px] p-8 sm:p-10 text-white">
+</div>
 
-      <h2 class="text-4xl font-extrabold">
-        Need Quick Help?
-      </h2>
+<div class="bg-slate-900 text-white rounded-[35px] p-10">
 
-      <p class="mt-4 text-slate-300 leading-relaxed">
-        Our healthcare support team is available 24/7 to help patients
-        get the best healthcare experience online.
-      </p>
+<h2 class="text-4xl font-extrabold">
+Need Help?
+</h2>
 
-      <div class="mt-10 space-y-8">
+<p class="mt-4 text-slate-300">
+Healthcare assistance is available 24/7.
+</p>
 
-        <div class="flex gap-5">
+<div class="mt-10 space-y-8">
 
-          <div class="w-16 h-16 rounded-2xl bg-cyan-500 flex items-center justify-center text-2xl">
-            <i class="fa-solid fa-phone"></i>
-          </div>
+<div class="flex gap-4">
 
-          <div>
+<div class="w-14 h-14 bg-cyan-500 rounded-xl flex items-center justify-center">
 
-            <h3 class="text-2xl font-bold">
-              Phone Support
-            </h3>
+<i class="fa-solid fa-phone"></i>
 
-            <p class="text-slate-300 mt-2">
-              +234 816 939 5022
-            </p>
+</div>
 
-          </div>
+<div>
 
-        </div>
+<h4 class="font-bold">
+Phone
+</h4>
 
-        <div class="flex gap-5">
+<p>
++234 816 939 5022
+</p>
 
-          <div class="w-16 h-16 rounded-2xl bg-green-500 flex items-center justify-center text-2xl">
-            <i class="fa-brands fa-whatsapp"></i>
-          </div>
+</div>
 
-          <div>
+</div>
 
-            <h3 class="text-2xl font-bold">
-              WhatsApp Consultation
-            </h3>
+<div class="flex gap-4">
 
-            <p class="text-slate-300 mt-2">
-              Chat directly with doctors instantly.
-            </p>
+<div class="w-14 h-14 bg-green-500 rounded-xl flex items-center justify-center">
 
-          </div>
+<i class="fa-solid fa-comments"></i>
 
-        </div>
+</div>
 
-        <div class="flex gap-5">
+<div>
 
-          <div class="w-16 h-16 rounded-2xl bg-red-500 flex items-center justify-center text-2xl">
-            <i class="fa-solid fa-clock"></i>
-          </div>
+<h4 class="font-bold">
+Live Chat
+</h4>
 
-          <div>
+<p>
+Powered by Tawk.to
+</p>
 
-            <h3 class="text-2xl font-bold">
-              Availability
-            </h3>
+</div>
 
-            <p class="text-slate-300 mt-2">
-              24 Hours Daily Support
-            </p>
+</div>
 
-          </div>
+<div class="flex gap-4">
 
-        </div>
+<div class="w-14 h-14 bg-purple-500 rounded-xl flex items-center justify-center">
 
-      </div>
+<i class="fa-solid fa-clock"></i>
 
-      <a href="https://wa.me/2348169395022"
-        target="_blank"
-        class="mt-12 block text-center bg-cyan-500 hover:bg-cyan-600 py-4 rounded-2xl font-semibold text-lg transition">
+</div>
 
-        Chat Doctor on WhatsApp
+<div>
 
-      </a>
+<h4 class="font-bold">
+Availability
+</h4>
 
-    </div>
+<p>
+24 Hours Daily
+</p>
 
-  </div>
+</div>
 
-</section>
+</div>
 
-<section class="py-20 px-6 bg-slate-100">
-  
-  <div class="max-w-7xl mx-auto">
-    
-    <h2 class="text-4xl font-bold">Global Hospital Network</h2>
-    
-    <p class="text-slate-500 mt-2">
-      Live hospital connectivity across countries
-    </p>
-    
-    <div class="grid md:grid-cols-4 gap-4 mt-10">
-      
-      <div class="bg-green-100 p-4 rounded-xl">
-        🇳🇬 Nigeria <br><b>Active</b>
-      </div>
-      
-      <div class="bg-blue-100 p-4 rounded-xl">
-        🇺🇸 USA <br><b>Active</b>
-      </div>
-      
-      <div class="bg-yellow-100 p-4 rounded-xl">
-        🇬🇧 UK <br><b>Standby</b>
-      </div>
-      
-      <div class="bg-red-100 p-4 rounded-xl">
-        🌍 Global Backup <br><b>Syncing</b>
-      </div>
-      
-    </div>
-    
-  </div>
-  
-</section>
+</div>
 
-<section class="py-20 px-6">
-  
-  <div class="max-w-5xl mx-auto bg-white p-8 rounded-2xl shadow">
-    
-    <h2 class="text-3xl font-bold">Medical Records Vault</h2>
-    
-    <p class="text-slate-500 mt-2">
-      Secure patient history storage system
-    </p>
-    
-    <input type="file" class="mt-5 w-full border p-3 rounded">
-    
-    <button class="bg-cyan-500 text-white px-6 py-3 mt-4 rounded">
-      Upload Secure Record
-    </button>
-    
-  </div>
-  
-</section>
+<button
+onclick="openChat()"
+class="mt-10 bg-cyan-500 px-8 py-4 rounded-xl">
 
-<section class="py-20 px-6 bg-red-50">
+Talk To Doctor
 
-  <div class="max-w-5xl mx-auto">
+</button>
 
-    <h2 class="text-3xl font-bold text-red-600">Ambulance Request</h2>
+</div>
 
-    <div class="bg-white p-6 rounded-2xl shadow mt-6">
-
-      <input placeholder="Your Location"
-             class="w-full p-3 border rounded mb-3">
-
-      <select class="w-full p-3 border rounded mb-3">
-        <option>Normal Pickup</option>
-        <option>Emergency Critical</option>
-      </select>
-
-      <button onclick="dispatchAmbulance()"
-              class="bg-red-500 text-white px-6 py-3 rounded">
-        Request Ambulance
-      </button>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-slate-950 text-white py-16 px-4 sm:px-6">
 
-  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
+<footer class="bg-slate-950 text-white py-16 px-4">
 
-    <div>
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
 
-      <h2 class="text-3xl font-bold">
-        SupremeCare Connect
-      </h2>
+<div>
 
-      <p class="mt-5 text-slate-400 leading-relaxed">
-        Smart healthcare platform connecting patients with certified doctors globally.
-      </p>
+<h2 class="text-3xl font-bold">
+MediCare Connect
+</h2>
 
-    </div>
+<p class="mt-4 text-slate-400">
+Smart healthcare platform connecting patients and healthcare professionals globally.
+</p>
 
-    <div>
+</div>
 
-      <h3 class="text-xl font-bold mb-5">
-        Services
-      </h3>
+<div>
 
-      <ul class="space-y-3 text-slate-400">
+<h3 class="font-bold text-xl mb-4">
+Services
+</h3>
 
-        <li>Consultation</li>
-        <li>Appointments</li>
-        <li>Emergency Support</li>
-        <li>Health Tips</li>
+<ul class="space-y-2 text-slate-400">
 
-      </ul>
+<li>Talk To Doctor</li>
+<li>Book Appointment</li>
+<li>Medical Records</li>
+<li>Health Tips</li>
 
-    </div>
+</ul>
 
-    <div>
+</div>
 
-      <h3 class="text-xl font-bold mb-5">
-        Quick Links
-      </h3>
+<div>
 
-      <ul class="space-y-3 text-slate-400">
+<h3 class="font-bold text-xl mb-4">
+Quick Links
+</h3>
 
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#doctors">Doctors</a></li>
-        <li><a href="#contact">Contact</a></li>
+<ul class="space-y-2 text-slate-400">
 
-      </ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#doctors">Doctors</a></li>
+<li><a href="#appointments">Appointments</a></li>
+<li><a href="#contact">Contact</a></li>
 
-    </div>
+</ul>
 
-    <div>
+</div>
 
-      <h3 class="text-xl font-bold mb-5">
-        Follow Us
-      </h3>
+<div>
 
-      <div class="flex gap-5 text-2xl">
+<h3 class="font-bold text-xl mb-4">
+Follow Us
+</h3>
 
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+<div class="flex gap-4 text-2xl">
 
-      </div>
+<a href="#"><i class="fa-brands fa-facebook"></i></a>
+<a href="#"><i class="fa-brands fa-instagram"></i></a>
+<a href="#"><i class="fa-brands fa-linkedin"></i></a>
+<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
-  <div class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500">
+</div>
 
-    © 2026 SupremeCare Connect. All Rights Reserved.
+<div class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500">
 
-  </div>
+© 2026 SupremeCare Connect. All Rights Reserved.
+
+</div>
 
 </footer>
 
-<!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/2348169395022"
-  target="_blank"
-  class="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-green-500 flex items-center justify-center text-white text-3xl shadow-2xl hover:scale-110 transition">
+<!-- DARK MODE BUTTON -->
 
-  <i class="fa-brands fa-whatsapp"></i>
+<button
+id="darkModeBtn"
+class="fixed left-6 bottom-6 z-50 bg-slate-900 text-white w-14 h-14 rounded-full shadow-xl">
 
-</a>
+<i class="fa-solid fa-moon"></i>
 
-<!-- JAVASCRIPT -->
-<script>
+</button>
 
-  // DOCTORS
-  const doctors = [
+<!-- NOTIFICATION -->
 
-    {
-      name: "Dr. Ese Fredrick Arigbe",
-      specialty: "General Doctor",
-      image: "IMG-20260622-WA0019.jpg",
-      experience: "15 Years"
-    },
+<div
+id="notification"
+class="fixed top-24 right-5 bg-green-500 text-white px-6 py-4 rounded-xl shadow-xl hidden z-50">
 
-    {
-      name: "Dr. Michael Brown",
-      specialty: "Neurologist",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-      experience: "10 Years"
-    },
+Welcome to MediCare Connect
 
-    {
-      name: "Dr. Emma Johnson",
-      specialty: "Dermatologist",
-      image: "https://randomuser.me/api/portraits/women/65.jpg",
-      experience: "8 Years"
-    },
+</div>
 
-    {
-      name: "Dr. Daniel Smith",
-      specialty: "Pediatrician",
-      image: "https://randomuser.me/api/portraits/men/45.jpg",
-      experience: "12 Years"
-    },
+<!-- TAWK.TO LIVE CHAT -->
 
-    {
-      name: "Dr. Olivia White",
-      specialty: "Gynecologist",
-      image: "https://randomuser.me/api/portraits/women/68.jpg",
-      experience: "9 Years"
-    },
+<script type="text/javascript">
+var Tawk_API = Tawk_API || {},
+    Tawk_LoadStart = new Date();
 
-    {
-      name: "Dr. James Lee",
-      specialty: "Orthopedic Surgeon",
-      image: "https://randomuser.me/api/portraits/men/51.jpg",
-      experience: "14 Years"
-    }
+(function() {
+    var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
 
-  ];
+    s1.async = true;
+    s1.src = "https://embed.tawk.to/6a3b1a5ad495201d4b7eba8f/default";
+    s1.charset = "UTF-8";
+    s1.setAttribute("crossorigin", "*");
 
-  const doctorContainer = document.getElementById("doctorContainer");
-
-  // RENDER DOCTORS
-  function renderDoctors(list){
-
-    doctorContainer.innerHTML = "";
-
-    list.forEach((doctor)=>{
-
-      doctorContainer.innerHTML += `
-
-        <div class="doctor-card bg-white rounded-[35px] p-8 custom-shadow transition duration-500">
-
-          <img
-            src="${doctor.image}"
-            class="w-32 h-32 rounded-full object-cover mx-auto border-4 border-cyan-500"
-          />
-
-          <div class="text-center mt-6">
-
-            <h3 class="text-2xl font-bold text-slate-800">
-              ${doctor.name}
-            </h3>
-
-            <p class="text-cyan-500 font-semibold mt-2">
-              ${doctor.specialty}
-            </p>
-
-            <div class="flex justify-center text-yellow-400 mt-4 gap-1">
-
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-
-            </div>
-
-            <p class="mt-4 text-slate-500">
-              Experience: ${doctor.experience}
-            </p>
-
-            <a href="https://wa.me/2348169395022"
-              target="_blank"
-              class="mt-6 inline-block bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full transition">
-
-              Contact Doctor
-
-            </a>
-
-          </div>
-
-        </div>
-
-      `;
-
-    });
-
-  }
-
-  renderDoctors(doctors);
-
-  // SEARCH FUNCTION
-  const searchDoctor = document.getElementById("searchDoctor");
-
-  searchDoctor.addEventListener("keyup", ()=>{
-
-    const value = searchDoctor.value.toLowerCase();
-
-    const filtered = doctors.filter((doctor)=>{
-
-      return (
-        doctor.name.toLowerCase().includes(value) ||
-        doctor.specialty.toLowerCase().includes(value)
-      );
-
-    });
-
-    renderDoctors(filtered);
-
-  });
-
-  // CONTACT FORM
-  const contactForm = document.getElementById("contactForm");
-
-  contactForm.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    const whatsappMessage =
-`Hello Doctor,%0A%0AMy Name is ${name}.%0AEmail: ${email}.%0A%0AHealth Issue:%0A${message}`;
-
-    window.open(
-      `https://wa.me/2348169395022?text=${whatsappMessage}`,
-      "_blank"
-    );
-
-  });
-
+    s0.parentNode.insertBefore(s1, s0);
+})();
 </script>
 
 <script>
 
-function getLocation() {
-  navigator.geolocation.getCurrentPosition(pos => {
-    alert("Location detected: " + pos.coords.latitude + ", " + pos.coords.longitude);
-  });
+/* NOTIFICATION */
+
+function showNotification(text){
+
+const box = document.getElementById("notification");
+
+if(!box) return;
+
+box.innerText = text;
+
+box.classList.remove("hidden");
+
+setTimeout(() => {
+
+box.classList.add("hidden");
+
+}, 4000);
+
 }
 
-function dispatchEmergency() {
-  alert("🚨 Emergency sent to nearest hospital + GP");
+/* DARK MODE */
+
+const darkBtn = document.getElementById("darkModeBtn");
+
+if(darkBtn){
+
+darkBtn.addEventListener("click", () => {
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+
+document.body.style.background = "#0f172a";
+document.body.style.color = "white";
+
+showNotification("Dark Mode Enabled");
+
+}else{
+
+document.body.style.background = "#f8fafc";
+document.body.style.color = "black";
+
+showNotification("Light Mode Disabled");
+
 }
 
-function dispatchAmbulance() {
-  alert("🚑 Ambulance is being dispatched to your location");
+});
+
 }
+
+/* OPEN TAWK CHAT */
+
+function openChat(){
+
+if(typeof Tawk_API !== "undefined"){
+
+Tawk_API.maximize();
+
+}else{
+
+alert("Chat system is loading...");
+
+}
+
+}
+
+/* SCROLL ANIMATION */
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity = "1";
+entry.target.style.transform = "translateY(0px)";
+
+}
+
+});
+
+});
+
+document.querySelectorAll("section").forEach(section => {
+
+section.style.opacity = "0";
+section.style.transform = "translateY(40px)";
+section.style.transition = "all .8s ease";
+
+observer.observe(section);
+
+});
+
+/* WELCOME MESSAGE */
+
+setTimeout(() => {
+
+showNotification(
+"Welcome to MediCare Connect"
+);
+
+}, 2000);
+
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        const form = document.getElementById("appointmentForm");
+        
+        if (!form) {
+            console.error("Form not found");
+            return;
+        }
+        
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            const fullname = document.getElementById("fullname").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const doctor = document.getElementById("doctor").value;
+            const date = document.getElementById("appointmentDate").value;
+            const time = document.getElementById("appointmentTime").value;
+            const reason = document.getElementById("reason").value.trim();
+            
+            if (!fullname || !email || !phone || !date || !time || !reason) {
+                alert("Please fill all required fields.");
+                return;
+            }
+            
+            const message =
+                `🩺 *NEW APPOINTMENT REQUEST*
 
+👤 Name: ${fullname}
+📧 Email: ${email}
+📞 Phone: ${phone}
+
+👨‍⚕️ Doctor: ${doctor}
+📅 Date: ${date}
+⏰ Time: ${time}
+
+📝 Reason:
+${reason}`;
+            
+            const whatsappNumber = "2348169395022";
+            
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            // ✅ SAFE OPEN (prevents popup blocking issues)
+            const win = window.open("", "_blank");
+            
+            if (win) {
+                win.location.href = url;
+            } else {
+                // fallback if popup blocked
+                window.location.href = url;
+            }
+            
+        });
+        
+    });
+</script>
 </body>
+
 </html>
